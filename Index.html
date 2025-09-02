@@ -3,183 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simply Adelia Coffee Shop</title>
-  <link rel="icon" type="image/png" href="Images/Simply Adelia Logo.png">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f8f5f2;
-      color: #333;
-    }
-
-    header {
-      background-color: #4b2e2e;
-      color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .hero {
-      background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') no-repeat center center/cover;
-      color: #fff;
-      text-align: center;
-      padding: 5rem 2rem;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero button {
-      background-color: #ff8c42;
-      color: white;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .products {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      padding: 3rem 1rem;
-      gap: 2rem;
-    }
-
-    .product {
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      max-width: 300px;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .product img {
-      width: 100%;
-      height: auto;
-    }
-
-    .product-info {
-      padding: 1rem;
-    }
-
-    .product-info h3 {
-      margin-bottom: 0.5rem;
-    }
-
-    .product-info p {
-      margin-bottom: 0.5rem;
-    }
-
-    .product-info .price {
-      font-weight: bold;
-      color: #4b2e2e;
-    }
-
-    .contact {
-      background-color: #eee;
-      padding: 3rem 1rem;
-      text-align: center;
-    }
-
-    .contact h2 {
-      margin-bottom: 1rem;
-    }
-
-    .contact form {
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
-    .contact input[type="email"] {
-      width: 100%;
-      padding: 0.8rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    .contact button {
-      padding: 0.8rem 1.5rem;
-      border: none;
-      background-color: #4b2e2e;
-      color: white;
-      font-size: 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    footer {
-      background-color: #4b2e2e;
-      color: white;
-      text-align: center;
-      padding: 1.5rem 1rem;
-    }
-
-    .socials {
-      margin-bottom: 0.5rem;
-    }
-
-    .socials a {
-      color: white;
-      margin: 0 0.5rem;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        gap: 1rem;
-        margin-top: 1rem;
-      }
-
-      .products {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-    }
-  </style>
+  <title>Simply Adelia Café</title>
+  <link rel="icon" type="png" href="Images/Simply Adelia Logo.png">
+  <link rel="stylesheet" href="Styles.css">
 </head>
 <body>
 
   <header>
-    <div class="logo">Simply Adelia Café ☕︎</div>
+    <div class="logo"><img src="Images/Simply Adelia Logo 32x32.png" alt="My Logo"> Simply Adelia Café</div>
     <nav>
       <ul>
         <li><a href="#products">Products</a></li>
@@ -190,8 +21,64 @@
 
   <section class="hero">
     <h1>Awaken Your Senses with Our Premium Coffee</h1>
-    <button>Shop Now</button>
+    <button id="shopNowBtn"><strong>Shop Now</strong></button>
   </section>
+  
+ <!-- Order Form Modal -->
+<div id="orderModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Order Coffee</h2>
+    <form id="orderForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+	  
+	  <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" placeholder="+639XXXXXXXXX or 09XXXXXXXXX" pattern="^(\+639\d{9}|09\d{9})$" required>
+
+      <div id="orderItems">
+        <div class="order-item">
+          <label>Choose Coffee:</label>
+          <select class="coffee" required>
+            <option value="">-- Select --</option>
+            <option value="espresso">Classic Espresso - ₱105</option>
+            <option value="latte">Vanilla Latte - ₱150</option>
+            <option value="coldbrew">Cold Brew - ₱175</option>
+          </select>
+
+          <label>Quantity:</label>
+          <input type="number" class="quantity" min="1" value="1" required>
+        </div>
+      </div>
+
+	  <div>
+      <button type="button" id="addItem">+ Add Another Coffee</button>
+	  </div>
+
+      <div class="total-line">
+		<label>Total Amount:</label>
+		<div id="total">₱0.00</div>
+	  </div>	
+	  
+	  <p class="order-note">
+    📞 Please expect a call from our customer representative to confirm your order.
+      </p>
+
+      <button type="submit">Place Order</button>
+    </form>
+  </div>
+</div>
+<!-- End Modal -->
+
+<!-- Receipt Modal -->
+<div id="receiptModal" class="modal">
+  <div class="modal-content">
+    <span class="close-receipt">&times;</span>
+    <h2>Order Receipt</h2>
+    <div id="receiptDetails"></div>
+    <button onclick="window.print()">Print Receipt</button>
+  </div>
+</div>
 
   <section class="products" id="products">
     <div class="product">
@@ -222,20 +109,27 @@
 
   <section class="contact" id="contact">
     <h2>Subscribe to Our Newsletter</h2>
-    <form>
-      <input type="email" placeholder="Enter your email" required />
+    <form action="Thankyou.html" method="get" id="subscribeForm" novalidate>
+      <input type="email" placeholder="Enter your email" name="email" id="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" />
+	  <small id="error-message" style="color: red; display: none;">
+      Please enter a valid email address (e.g. name@example.com)
+      </small>
       <button type="submit">Subscribe</button>
     </form>
   </section>
 
   <footer>
-    <div class="socials">
+<!--     <div class="socials">
       <a href="#">Facebook</a>
       <a href="#">Instagram</a>
       <a href="#">Twitter</a>
-    </div>
+    </div> -->
     <p>&copy; 2025 Simply Adelia Café. All rights reserved.</p>
   </footer>
+  
+  <script src="Order.js"></script>
+  <script src="Price.js"></script>
+  <script src="EmailValidation.js"></script>
 
 </body>
 </html>
