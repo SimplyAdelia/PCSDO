@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Simply Adelia Café</title>
   <link rel="icon" type="png" href="Images/Simply Adelia Logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="Styles.css">
 </head>
 <body>
 
   <header>
-    <div class="logo"><img src="Images/Simply Adelia Logo 32x32.png" alt="My Logo"> Simply Adelia Café</div>
+    <div class="logo">
+	<a href="index.html">
+	<img src="Images/Simply Adelia Logo 32x321.png" alt="My Logo"></a> Simply Adelia Café</div>
     <nav>
       <ul>
         <li><a href="#products">Products</a></li>
@@ -81,24 +84,24 @@
 </div>
 
   <section class="products" id="products">
-    <div class="product">
-      <img src="Images\Classic Espresso.png" alt="Espresso">
+    <div class="product" data-coffee="espresso">
+      <img src="Images/Classic Espresso.png" alt="Espresso">
       <div class="product-info">
         <h3>Classic Espresso</h3>
         <p>Rich and bold with a smooth finish.</p>
         <div class="price">₱105.00</div>
       </div>
     </div>
-    <div class="product">
-      <img src="Images\Vanilla Latte.png" alt="Latte">
+    <div class="product" data-coffee="latte">
+      <img src="Images/Vanilla Latte.png" alt="Latte">
       <div class="product-info">
         <h3>Vanilla Latte</h3>
         <p>Creamy milk with a hint of vanilla.</p>
         <div class="price">₱150.00</div>
       </div>
     </div>
-    <div class="product">
-      <img src="Images\Cold Brew.jpg" alt="Cold Brew">
+    <div class="product" data-coffee="coldbrew">
+      <img src="Images/Cold Brew.png" alt="Cold Brew">
       <div class="product-info">
         <h3>Cold Brew</h3>
         <p>Chilled, smooth, and deeply refreshing.</p>
@@ -127,7 +130,8 @@
     <p>&copy; 2025 Simply Adelia Café. All rights reserved.</p>
   </footer>
   
-  <script src="Order.js"></script>
+  <script src="OrderForm.js"></script>
+  <script src="ProductOrderForm.js"></script>
   <script src="Price.js"></script>
   <script src="EmailValidation.js"></script>
   <script src="DataCollection.js"></script>
